@@ -16,4 +16,12 @@
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <EditorConfigFiles Remove="C:\Users\Simona\source\repos\DogBNB\DogBNB\.editorconfig" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="C:\Users\Simona\source\repos\DogBNB\DogBNB\.editorconfig" />
+  </ItemGroup>
+
 </Project>
