@@ -7,9 +7,12 @@ namespace DogBNB_Db
     {
         public DogBNBDbContext(DbContextOptions<DogBNBDbContext> options) : base(options)
         {
+
         }
 
         public DbSet<Dog> Dogs { get; set; }
+
+        public DbSet<User> Users { get; set; }
 
     }
 }
