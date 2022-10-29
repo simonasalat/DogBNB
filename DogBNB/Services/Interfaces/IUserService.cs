@@ -13,9 +13,9 @@ namespace DogBNB.Services.Interfaces
         public List<User> GetUsers();
         public User GetUserById(int id);
         public List<User> GetUsersByName(string username);
-        public User createUser(UserDto user);
-        public User updateUser(UserDto user);
-        public void deleteUser(int id);
+        public User CreateUser(UserDto user);
+        public User UpdateUser(UserDto user);
+        public void DeleteUser(int id);
        
 
          

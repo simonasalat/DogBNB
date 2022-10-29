@@ -18,12 +18,12 @@ namespace DogBNB.Services
         //{
         //    _context = ctx;
         //}
-        public User createUser(UserDto user)
+        public User CreateUser(UserDto user)
         {
             throw new NotImplementedException();
         }
 
-        public void deleteUser(int id)
+        public void DeleteUser(int id)
         {
             throw new NotImplementedException();
         }
@@ -43,7 +43,7 @@ namespace DogBNB.Services
             throw new NotImplementedException();
         }
 
-        public User updateUser(UserDto user)
+        public User UpdateUser(UserDto user)
         {
             throw new NotImplementedException();
         }

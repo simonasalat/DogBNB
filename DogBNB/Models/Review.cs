@@ -8,7 +8,7 @@ namespace DogBNB.Models
 {
     public class Review
     {
-        public int id { get; set; }
+        public int Id { get; set; }
         public int OwnerID { get; set; }
         public int SitterID { get; set; }
         public int Rating { get; set; }

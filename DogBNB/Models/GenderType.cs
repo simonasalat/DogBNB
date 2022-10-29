@@ -10,6 +10,6 @@ namespace DogBNB.Models
     {
         Man,
         Female,
-        nonBinary
+        NonBinary
     }
 }

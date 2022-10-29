@@ -8,8 +8,8 @@ namespace DogBNB.Services.Interfaces
 {
     public interface IReviewService
     {
-        public bool deleteReview(int id);
-        public bool editReview(int id, int ownerId, string text);
-        public bool addReview(int sitterId, int ownerId, string text);
+        public bool DeleteReview(int id);
+        public bool EditReview(int id, int ownerId, string text);
+        public bool AddReview(int sitterId, int ownerId, string text);
     }
 }

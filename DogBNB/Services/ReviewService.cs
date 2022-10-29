@@ -9,17 +9,17 @@ namespace DogBNB.Services
 {
     public class ReviewService : IReviewService
     {
-        public bool addReview(int sitterId, int ownerId, string text)
+        public bool AddReview(int sitterId, int ownerId, string text)
         {
             throw new NotImplementedException();
         }
 
-        public bool deleteReview(int id)
+        public bool DeleteReview(int id)
         {
             throw new NotImplementedException();
         }
 
-        public bool editReview(int id, int ownerId, string text)
+        public bool EditReview(int id, int ownerId, string text)
         {
             throw new NotImplementedException();
         }
