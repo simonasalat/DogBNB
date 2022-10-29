@@ -4,9 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DogBNB.Services.Interfaces
+namespace DogBNB.Models
 {
-    public interface IDogService
+    public enum GenderType
     {
+        Man,
+        Female,
+        NonBinary
     }
 }
