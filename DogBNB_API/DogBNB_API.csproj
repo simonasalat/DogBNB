@@ -13,7 +13,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\DogBNB\DogBNB.csproj" />
-    <ProjectReference Include="..\DogBNB_Db\DogBNB_Db.csproj" />
   </ItemGroup>
 
 </Project>

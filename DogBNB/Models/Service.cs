@@ -9,8 +9,8 @@ namespace DogBNB.Models
     public class Service
     {
         public int Id { get; set; }
-        public string ServiceType { get; set; }
-        public double Price { get; set; }
+        public ServiceType ServiceType { get; set; }
+        public decimal Price { get; set; }
 
     }
 }

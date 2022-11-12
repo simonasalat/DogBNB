@@ -1,10 +1,10 @@
 ﻿using DogBNB.Models;
 
-namespace DogBNB.Services.IServices
+namespace DogBNB.Repositories.Interfaces
 {
-    public interface IOrderService
+    public interface IOrderRepository
     {
-        public Order AddOrder(Order order);
+        public Order Add(Order order);
 
         public List<Order> GetOrders(string userId);
 
