@@ -15,9 +15,5 @@ namespace DogBNB_Db.Entities
         public string Phone { get; set; }
         public string Gender { get; set; }
 
-        public void remove()
-        {
-            throw new NotImplementedException();
-        }
     }
 }
