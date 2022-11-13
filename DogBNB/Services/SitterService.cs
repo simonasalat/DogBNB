@@ -1,4 +1,5 @@
 ﻿using DogBNB.Models;
+using DogBNB.Repositories.Interfaces;
 using DogBNB.Services.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -11,24 +12,36 @@ namespace DogBNB.Services
     internal class SitterService : ISitterService
 
     {
-        public List<Review> GetReviewsBySitterId(int id)
+        private readonly ISitterRepository _repository;
+
+        public SitterService(ISitterRepository sitterRepository)
         {
-            throw new NotImplementedException();
+            _repository = sitterRepository;
         }
 
-        public Sitter GetSitterbyId(int id)
+        public Sitter CreateSitter(Sitter sitter, int userId)
         {
-            throw new NotImplementedException();
+            return _repository.CreateSitter(sitter, userId);
+        }
+
+        public void DeleteSitter(int id)
+        {
+            _repository.DeleteSitter(id);
+        }
+
+        public Sitter GetSitterById(int id)
+        {
+           return _repository.GetSitterById(id);
         }
 
         public List<Sitter> GetSitters()
         {
-            throw new NotImplementedException();
+            return _repository.GetSitters();
         }
 
-        public List<Sitter> GetSittersByService(Service service)
+        public Sitter UpdateSitter(Sitter sitter, int id)
         {
-            throw new NotImplementedException();
+            return _repository.UpdateSitter(sitter, id);
         }
     }
 }
