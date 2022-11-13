@@ -1,5 +1,5 @@
-﻿using DogBNB.Dto_s;
-using DogBNB.Models;
+﻿using DogBNB.Models;
+using DogBNB.Repositories.Interfaces;
 using DogBNB.Services.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -9,43 +9,44 @@ using System.Threading.Tasks;
 
 namespace DogBNB.Services
 {
-    internal class UserService : IUserService
+    public class UserService : IUserService
     {
 
-        // private readonly DogBNBDbContext _context;
+         private readonly IUserRepository _repository;
 
-        //public UserService(DogBNBDbContext ctx)
-        //{
-        //    _context = ctx;
-        //}
-        public User CreateUser(UserDto user)
+        public UserService(IUserRepository userRepository)
+     {
+            _repository = userRepository;
+        }
+
+        public User CreateUser(User user)
         {
-            throw new NotImplementedException();
+            return _repository.CreateUser(user);
         }
 
         public void DeleteUser(int id)
         {
-            throw new NotImplementedException();
+            _repository.DeleteUser(id);
         }
 
         public User GetUserById(int id)
         {
-            throw new NotImplementedException();
+          return _repository.GetUserById(id);
         }
 
         public List<User> GetUsers()
         {
-            throw new NotImplementedException();
+            return GetUsers();
         }
 
         public List<User> GetUsersByName(string username)
         {
-            throw new NotImplementedException();
+            return GetUsersByName(username);
         }
 
-        public User UpdateUser(UserDto user)
+        public User UpdateUser(User user, int id)
         {
-            throw new NotImplementedException();
+            return UpdateUser(user, id);
         }
 
 

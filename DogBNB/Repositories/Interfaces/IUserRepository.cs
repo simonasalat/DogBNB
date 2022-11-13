@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DogBNB.Services.Interfaces
+namespace DogBNB.Repositories.Interfaces
 {
-    public interface IUserService
+    public interface IUserRepository
     {
         public List<User> GetUsers();
         public User GetUserById(int id);
@@ -15,6 +15,5 @@ namespace DogBNB.Services.Interfaces
         public User CreateUser(User user);
         public User UpdateUser(User user, int id);
         public void DeleteUser(int id);
-              
     }
 }
