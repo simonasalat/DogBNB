@@ -21,6 +21,8 @@ namespace DogBNB_Db
         public DbSet<Message> Messages { get; set; }
         public DbSet<Chat> Chats { get; set; }
 
+        public DbSet<Sitter> Sitters { get; set; }
+
         //protected override void OnModelCreating(ModelBuilder builder)
         //{
         //    base.OnModelCreating(builder);

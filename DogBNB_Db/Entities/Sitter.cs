@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DogBNB.Models
+namespace DogBNB_Db.Entities
 {
-    public class Sitter : User
+    public class Sitter
     {
+        public int UserId { get; set; }
         public string Description { get; set; }
 
     }
