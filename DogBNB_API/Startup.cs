@@ -15,7 +15,7 @@ namespace DogBNB_API
         {
             services.AddControllers();
             services.AddDbContext<DogBNBDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-            services.AddScoped<IDogService, DogService>();
+            //services.AddScoped<IDogService, DogService>();
 
         }
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

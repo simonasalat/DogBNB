@@ -1,0 +1,9 @@
+1. atsisiusk Express Edition Sql Server
+2. nukopijuok: Instanse name (Server=localhost\SQLEXPRESS;Database=master;Trusted_Connection=True;)
+3. spaudi install ssms, tada ismes i kita psl, spausk: Free Download for SQL Server Management Studio (SSMS) 18.12.1 ir instaliuoji
+4. gali buti kad reiks perkraut kompa
+5. atsidarai ssms ir turi buti serveris kuri pries tai installinai
+6. atsidaryk visual studio -> view -> other windows -> package manager console
+7. rasai komanda add-migration "Init" -Project "DogBNB_Db"
+8. update-database
+9. isijungi ssms - turetu buti susikurus duombaze lokaliai

@@ -22,7 +22,7 @@ namespace DogBNB.Repositories
         }
         public void DeleteChat(int id)
         {
-            var chat = _context.Chats.Where(x => x.Id == id).First();
+            var chat = _context.Chats.Where(x => x.ChatId == id).First();
             var messages = _context.Messages.Where(x => x.ChatId == id);
            
             foreach(var message in messages)
@@ -44,7 +44,7 @@ namespace DogBNB.Repositories
             {
                 var message = new Message
                 {
-                    Id = item.Id,
+                    Id = item.MessageId,
                     SenderId = item.SenderId,
                     ChatId = item.ChatId,
                     Date = item.Date,
@@ -58,11 +58,11 @@ namespace DogBNB.Repositories
 
         public Chat GetChatById(int id)
         {
-            var c = _context.Chats.Where(x => x.Id == id).First();
+            var c = _context.Chats.Where(x => x.ChatId == id).First();
 
             var chat = new Chat
             {
-                Id = c.Id,
+                Id = c.ChatId,
                 SitterId = c.SitterId,
                 OwnerId = c.OwnerId,
                 ChatName = c.ChatName
@@ -81,7 +81,7 @@ namespace DogBNB.Repositories
             {
                 var message = new Message
                 {
-                    Id = item.Id,
+                    Id = item.MessageId,
                     SenderId = item.SenderId,
                     ChatId = item.ChatId,
                     Date = item.Date,
