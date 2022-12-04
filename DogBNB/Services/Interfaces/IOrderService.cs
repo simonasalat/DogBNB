@@ -1,4 +1,5 @@
 ﻿using DogBNB.Models;
+using System.Collections.Generic;
 
 namespace DogBNB.Services.IServices
 {

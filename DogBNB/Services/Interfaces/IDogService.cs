@@ -1,4 +1,6 @@
 ﻿using DogBNB.Models;
+using System.Collections.Generic;
+
 namespace DogBNB.IServices
 {
     public interface IDogService

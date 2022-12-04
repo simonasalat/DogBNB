@@ -1,5 +1,7 @@
 ﻿
 
+using System;
+
 namespace DogBNB.Models
 {
     public class Order

@@ -8,9 +8,11 @@ namespace DogBNB_Db.Entities
 {
     public class Chat
     {
-        public int Id { get; set; }
+        public int ChatId { get; set; }
         public int SitterId { get; set; }
         public int OwnerId { get; set; }
         public string ChatName { get; set; }
+        public virtual List<Message> Messages { get; set; }
+        public virtual Owner Owner { get; set; }
     }
 }

@@ -1,6 +1,9 @@
 ﻿using DogBNB.Models;
 using DogBNB.Repositories.Interfaces;
 using DogBNB_Db;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace DogBNB.Repositories
 {
@@ -18,7 +21,7 @@ namespace DogBNB.Repositories
 
         public Dog GetDogById(string id)
         {
-            var d = _context.Dogs.Where(x => x.Id == id).First();
+            var d = _context.Dogs.Where(x => x.DogId == id).First();
            
             _ = Enum.TryParse(d.Size, out DogSize size);
             var dog = new Dog
@@ -52,13 +55,13 @@ namespace DogBNB.Repositories
         }
         public void DeleteDog(string dogId)
         {
-            var dog = _context.Dogs.Where(x => x.Id == dogId).First();
+            var dog = _context.Dogs.Where(x => x.DogId == dogId).First();
             _context.Dogs.Remove(dog);
             _context.SaveChanges();
         }
         public void EditDog(string dogId, Dog newDog)
         {
-            var dog = _context.Dogs.Where(x => x.Id == dogId).First();
+            var dog = _context.Dogs.Where(x => x.DogId == dogId).First();
             dog.Name = newDog.Name;
             dog.Breed = newDog.Breed;
             dog.Age = newDog.Age;

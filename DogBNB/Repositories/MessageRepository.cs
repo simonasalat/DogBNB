@@ -1,6 +1,7 @@
 ﻿using DogBNB.Models;
 using DogBNB.Repositories.Interfaces;
 using DogBNB_Db;
+using System.Linq;
 
 namespace DogBNB.Repositories
 {
@@ -33,7 +34,7 @@ namespace DogBNB.Repositories
 
         public void DeleteMessage(int id)
         {
-            var message = _context.Messages.Where(x => x.Id == id).First();
+            var message = _context.Messages.Where(x => x.MessageId == id).First();
             _context.Messages.Remove(message);
             _context.SaveChanges();
         }

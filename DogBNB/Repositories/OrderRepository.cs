@@ -1,6 +1,9 @@
 ﻿using DogBNB.Models;
 using DogBNB.Repositories.Interfaces;
 using DogBNB_Db;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace DogBNB.Repositories
 {
@@ -21,7 +24,7 @@ namespace DogBNB.Repositories
             var service = new DogBNB_Db.Entities.Service
             {
 
-                Id = order.Service.Id,
+                ServiceId = order.Service.Id,
                 ServiceType = order.Service.ServiceType.ToString(),
                 Price = order.Price
             };
@@ -53,14 +56,14 @@ namespace DogBNB.Repositories
                 
                 var service = new Service {
 
-                    Id = item.Service.Id,
+                    Id = item.Service.ServiceId,
                     ServiceType = serviceType,
                     Price = item.Price
                 };
 
                 var o = new Order
                 {
-                    Id = item.Id,
+                    Id = item.OrderId,
                     SitterId = item.SitterId,
                     DogId = item.DogId,
                     Price = item.Price,
@@ -76,7 +79,7 @@ namespace DogBNB.Repositories
 
         public void DeleteOrder(int id)
         {
-            var order = _context.Orders.Where(x => x.Id == id).First();
+            var order = _context.Orders.Where(x => x.OrderId == id).First();
             _context.Orders.Remove(order);
             _context.SaveChanges();
         }
