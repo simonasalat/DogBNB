@@ -9,10 +9,10 @@ using System.Threading.Tasks;
 
 namespace DogBNB.Services
 {
-    internal class SitterService : ISitterService
+    public class SitterService : ISitterService
 
     {
-        private readonly ISitterRepository _repository;
+        public readonly ISitterRepository _repository;
 
         public SitterService(ISitterRepository sitterRepository)
         {

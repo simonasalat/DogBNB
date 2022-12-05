@@ -20,8 +20,10 @@ namespace DogBNB_Db
         public DbSet<User> Users { get; set; }
         public DbSet<Message> Messages { get; set; }
         public DbSet<Chat> Chats { get; set; }
-
+        public DbSet<Service> Services { get; set; }
         public DbSet<Sitter> Sitters { get; set; }
+
+        public DbSet<Callendar> Callendars { get; set; }
 
         //protected override void OnModelCreating(ModelBuilder builder)
         //{

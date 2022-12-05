@@ -4,14 +4,16 @@ using DogBNB_Db;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DogBNB_Db.Migrations
 {
     [DbContext(typeof(DogBNBDbContext))]
-    partial class DogBNBDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221205122005_AddSitter")]
+    partial class AddSitter
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -44,27 +46,6 @@ namespace DogBNB_Db.Migrations
                     b.HasKey("AddressId");
 
                     b.ToTable("Locations");
-                });
-
-            modelBuilder.Entity("DogBNB_Db.Entities.Callendar", b =>
-                {
-                    b.Property<int>("CallendarId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .UseIdentityColumn();
-
-                    b.Property<DateTime>("BookedDayEnd")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("BookedDayStart")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
-
-                    b.HasKey("CallendarId");
-
-                    b.ToTable("Callendars");
                 });
 
             modelBuilder.Entity("DogBNB_Db.Entities.Chat", b =>

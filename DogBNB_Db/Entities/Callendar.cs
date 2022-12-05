@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace DogBNB_Db.Entities
 {
-    public class Sitter
+    public class Callendar
     {
-        public int SitterId {get;set; }
+        public int CallendarId { get; set; }
         public int UserId { get; set; }
-        public string Description { get; set; }
-
+        public DateTime BookedDayStart { get; set; }
+        public DateTime BookedDayEnd { get; set; }
     }
 }
