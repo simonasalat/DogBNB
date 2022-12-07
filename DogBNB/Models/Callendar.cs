@@ -8,9 +8,9 @@ namespace DogBNB.Models
 {
     public class Callendar
     {
-        public short Id { get; set; }
-        public List<DateTime> BookedDays { get; set; }
-
-        public List<DateTime> Weekends { get; set; }
+        public int Id { get; set; }
+        public int UserId { get; set; }
+        public DateTime BookedDayStart { get; set; }
+        public DateTime BookedDayEnd { get; set; }
     }
 }
