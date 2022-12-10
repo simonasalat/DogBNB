@@ -1,13 +1,13 @@
 ﻿
 
 using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace DogBNB_Db.Entities
 { 
     public class User
     {
-
-        public int Id { get; set; }
+        public int UserId { get; set; }
         public string Name { get; set; }
         public string Surname { get; set; }
         public string Password { get; set; }

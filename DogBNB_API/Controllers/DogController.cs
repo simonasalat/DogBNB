@@ -15,11 +15,11 @@ namespace DogBNB_API.Controllers
             _dogService = dogService;
         }
 
-        //[HttpGet]
-        //public List<Dog> GetDogs()
-        //{
-        //    return _dogService.GetDogList();
-        //}
+        [HttpGet]
+        public List<Dog> GetDogs()
+        {
+            return _dogService.GetAllDogs();
+        }
 
         [HttpGet("{id}")]
         public Dog GetDog(string id)

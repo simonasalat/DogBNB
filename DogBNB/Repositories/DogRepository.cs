@@ -94,5 +94,28 @@ namespace DogBNB.Repositories
             return dogs;
         }
 
+        public List<Dog> GetAllDogs()
+        {
+            var list = _context.Dogs.ToList();
+
+            var dogs = new List<Dog>();
+
+            foreach (var item in list)
+            {
+                _ = Enum.TryParse(item.Size, out DogSize size);
+                var dog = new Dog
+                {
+                    OwnerId = item.OwnerId,
+                    Name = item.Name,
+                    Breed = item.Breed,
+                    Age = item.Age,
+                    Size = size,
+                    Traits = item.Traits,
+                };
+                dogs.Add(dog);
+            }
+
+            return dogs;
+        }
     }
 }

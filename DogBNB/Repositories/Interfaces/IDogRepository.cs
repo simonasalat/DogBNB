@@ -10,5 +10,7 @@ namespace DogBNB.Repositories.Interfaces
         public void DeleteDog(string dogId);
         public void EditDog(string dogId, Dog newDog);
         public List<Dog> GetDogs(string ownerId);
+
+        public List<Dog> GetAllDogs();
     }
 }
