@@ -6,8 +6,8 @@ namespace DogBNB_Db.Entities
 {
     public class Dog
     {
-        public string DogId { get; set; }
-        public string OwnerId { get; set; }
+        public int DogId { get; set; }
+        public int OwnerId { get; set; }
         public string Name { get; set; }
         public string Breed { get; set; }
         public int Age { get; set; }

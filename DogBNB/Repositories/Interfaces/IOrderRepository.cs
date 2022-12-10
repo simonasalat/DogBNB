@@ -7,7 +7,7 @@ namespace DogBNB.Repositories.Interfaces
     {
         public Order Add(Order order);
 
-        public List<Order> GetOrders(string userId);
+        public List<Order> GetOrders(int userId);
 
         public void DeleteOrder(int id);
     }

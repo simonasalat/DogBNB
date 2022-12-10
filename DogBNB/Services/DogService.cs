@@ -12,15 +12,12 @@ namespace DogBNB.Services
         {
             _dogRepository = dogRepository;
         }
-        public Dog GetDogById(string id) => _dogRepository.GetDogById(id);
+        public Dog GetDogById(int id) => _dogRepository.GetDogById(id);
         public Dog AddDog(Dog dog) => _dogRepository.Add(dog);
-        public void DeleteDog(string id) => _dogRepository.DeleteDog(id);
-        public void EditDog(string id, Dog newDog) => _dogRepository.EditDog(id, newDog);
-        public List<Dog> GetDogList(string ownerId) => _dogRepository.GetDogs(ownerId);
-
-        public List<Dog> GetAllDogs()
-        {
-            return _dogRepository.GetAllDogs();
-        }
+        public void DeleteDog(int id) => _dogRepository.DeleteDog(id);
+        public void EditDog(int id, Dog newDog) => _dogRepository.EditDog(id, newDog);
+        public List<Dog> GetDogList(int ownerId) => _dogRepository.GetDogs(ownerId);
+        public List<Dog> GetAllDogs() => _dogRepository.GetAllDogs();
+        
     }
 }

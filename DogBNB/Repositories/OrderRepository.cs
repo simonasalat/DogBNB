@@ -45,7 +45,7 @@ namespace DogBNB.Repositories
             return order;
         }
 
-        public List<Order> GetOrders(string userId)
+        public List<Order> GetOrders(int userId)
         {
             var list = _context.Orders.Where(x => (x.SitterId == userId || x.DogId == userId)).ToList();
 

@@ -22,9 +22,15 @@ namespace DogBNB_API.Controllers
         }
 
         [HttpGet("{id}")]
-        public Dog GetDog(string id)
+        public Dog GetDog(int id)
         {
             return _dogService.GetDogById(id);
+        }
+
+        [HttpGet("owner={id}")]
+        public List<Dog> GetOwnerDogs(int ownerId)
+        {
+            return _dogService.GetDogList(ownerId);
         }
 
         [HttpPost]
@@ -33,11 +39,16 @@ namespace DogBNB_API.Controllers
             return _dogService.AddDog(dog);
         }
 
-        //[HttpDelete("delete/{id}")]
-        //public string DeleteDog(string id)
-        //{
-        //    _dogService.DeleteDog(id);
-        //    return "dog deleted successfully";
-        //}
+        [HttpDelete("delete/{id}")]
+        public string DeleteDog(int id)
+        {
+            _dogService.DeleteDog(id);
+            return "Dog deleted successfully";
+        }
+        [HttpPut("edit/{id}")]
+        public void EditDog(int id, [FromBody] Dog newDog)
+        {
+            _dogService.EditDog(id, newDog);
+        }
     }
 }

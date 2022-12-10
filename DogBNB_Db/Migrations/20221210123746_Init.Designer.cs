@@ -7,26 +7,30 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
+#nullable disable
+
 namespace DogBNB_Db.Migrations
 {
     [DbContext(typeof(DogBNBDbContext))]
-    [Migration("20221205163249_AddCallendar")]
-    partial class AddCallendar
+    [Migration("20221210123746_Init")]
+    partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .UseIdentityColumns()
-                .HasAnnotation("Relational:MaxIdentifierLength", 128)
-                .HasAnnotation("ProductVersion", "5.0.1");
+                .HasAnnotation("ProductVersion", "6.0.0")
+                .HasAnnotation("Relational:MaxIdentifierLength", 128);
+
+            SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
             modelBuilder.Entity("DogBNB_Db.Entities.Address", b =>
                 {
                     b.Property<int>("AddressId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .UseIdentityColumn();
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("AddressId"), 1L, 1);
 
                     b.Property<string>("City")
                         .HasColumnType("nvarchar(max)");
@@ -52,8 +56,9 @@ namespace DogBNB_Db.Migrations
                 {
                     b.Property<int>("CallendarId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .UseIdentityColumn();
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CallendarId"), 1L, 1);
 
                     b.Property<DateTime>("BookedDayEnd")
                         .HasColumnType("datetime2");
@@ -73,8 +78,9 @@ namespace DogBNB_Db.Migrations
                 {
                     b.Property<int>("ChatId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .UseIdentityColumn();
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ChatId"), 1L, 1);
 
                     b.Property<string>("ChatName")
                         .HasColumnType("nvarchar(max)");
@@ -94,8 +100,11 @@ namespace DogBNB_Db.Migrations
 
             modelBuilder.Entity("DogBNB_Db.Entities.Dog", b =>
                 {
-                    b.Property<string>("DogId")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("DogId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("DogId"), 1L, 1);
 
                     b.Property<int>("Age")
                         .HasColumnType("int");
@@ -106,10 +115,7 @@ namespace DogBNB_Db.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("OwnerId")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("OwnerId1")
+                    b.Property<int>("OwnerId")
                         .HasColumnType("int");
 
                     b.Property<string>("Size")
@@ -117,7 +123,7 @@ namespace DogBNB_Db.Migrations
 
                     b.HasKey("DogId");
 
-                    b.HasIndex("OwnerId1");
+                    b.HasIndex("OwnerId");
 
                     b.ToTable("Dogs");
                 });
@@ -126,8 +132,9 @@ namespace DogBNB_Db.Migrations
                 {
                     b.Property<int>("MessageId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .UseIdentityColumn();
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MessageId"), 1L, 1);
 
                     b.Property<int>("ChatId")
                         .HasColumnType("int");
@@ -152,11 +159,12 @@ namespace DogBNB_Db.Migrations
                 {
                     b.Property<int>("OrderId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .UseIdentityColumn();
+                        .HasColumnType("int");
 
-                    b.Property<string>("DogId")
-                        .HasColumnType("nvarchar(max)");
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("OrderId"), 1L, 1);
+
+                    b.Property<int>("DogId")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("EndDate")
                         .HasColumnType("datetime2");
@@ -167,8 +175,8 @@ namespace DogBNB_Db.Migrations
                     b.Property<int?>("ServiceId")
                         .HasColumnType("int");
 
-                    b.Property<string>("SitterId")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("SitterId")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("StartDate")
                         .HasColumnType("datetime2");
@@ -180,12 +188,29 @@ namespace DogBNB_Db.Migrations
                     b.ToTable("Orders");
                 });
 
+            modelBuilder.Entity("DogBNB_Db.Entities.Owner", b =>
+                {
+                    b.Property<int>("OwnerId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("OwnerId"), 1L, 1);
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("OwnerId");
+
+                    b.ToTable("Owners");
+                });
+
             modelBuilder.Entity("DogBNB_Db.Entities.Service", b =>
                 {
                     b.Property<int>("ServiceId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .UseIdentityColumn();
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ServiceId"), 1L, 1);
 
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
@@ -205,8 +230,9 @@ namespace DogBNB_Db.Migrations
                 {
                     b.Property<int>("SitterId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .UseIdentityColumn();
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("SitterId"), 1L, 1);
 
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
@@ -221,14 +247,11 @@ namespace DogBNB_Db.Migrations
 
             modelBuilder.Entity("DogBNB_Db.Entities.User", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("UserId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .UseIdentityColumn();
+                        .HasColumnType("int");
 
-                    b.Property<string>("Discriminator")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("UserId"), 1L, 1);
 
                     b.Property<string>("Email")
                         .HasColumnType("nvarchar(max)");
@@ -248,21 +271,9 @@ namespace DogBNB_Db.Migrations
                     b.Property<string>("Surname")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id");
+                    b.HasKey("UserId");
 
                     b.ToTable("Users");
-
-                    b.HasDiscriminator<string>("Discriminator").HasValue("User");
-                });
-
-            modelBuilder.Entity("DogBNB_Db.Entities.Owner", b =>
-                {
-                    b.HasBaseType("DogBNB_Db.Entities.User");
-
-                    b.Property<int>("OwnerId")
-                        .HasColumnType("int");
-
-                    b.HasDiscriminator().HasValue("Owner");
                 });
 
             modelBuilder.Entity("DogBNB_Db.Entities.Chat", b =>
@@ -280,7 +291,9 @@ namespace DogBNB_Db.Migrations
                 {
                     b.HasOne("DogBNB_Db.Entities.Owner", "Owner")
                         .WithMany("Dogs")
-                        .HasForeignKey("OwnerId1");
+                        .HasForeignKey("OwnerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Owner");
                 });

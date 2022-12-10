@@ -16,7 +16,7 @@ namespace DogBNB.Services
 
         public Order AddOrder(Order order) => _orderRepository.Add(order);
 
-        public List<Order> GetOrders(string userId) => _orderRepository.GetOrders(userId);
+        public List<Order> GetOrders(int userId) => _orderRepository.GetOrders(userId);
         public void DeleteOrder(int id) => _orderRepository.DeleteOrder(id);
     }
 }
