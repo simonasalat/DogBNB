@@ -36,17 +36,17 @@ namespace DogBNB.Services
 
         public List<User> GetUsers()
         {
-            return GetUsers();
+            return _repository.GetUsers();
         }
 
         public List<User> GetUsersByName(string username)
         {
-            return GetUsersByName(username);
+            return _repository.GetUsersByName(username);
         }
 
         public User UpdateUser(User user, int id)
         {
-            return UpdateUser(user, id);
+            return _repository.UpdateUser(user, id);
         }
 
 

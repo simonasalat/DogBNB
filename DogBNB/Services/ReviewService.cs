@@ -1,4 +1,6 @@
-﻿using DogBNB.Services.Interfaces;
+﻿using DogBNB.Models;
+using DogBNB.Repositories.Interfaces;
+using DogBNB.Services.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,19 +11,34 @@ namespace DogBNB.Services
 {
     public class ReviewService : IReviewService
     {
-        public bool AddReview(int sitterId, int ownerId, string text)
+        private readonly IReviewRepository _reviewRepository;
+        public ReviewService(IReviewRepository reviewRepository)
         {
-            throw new NotImplementedException();
+            _reviewRepository = reviewRepository;
+        }      
+        public string AddReview(Review review)
+        {
+            return _reviewRepository.AddReview(review);
         }
 
-        public bool DeleteReview(int id)
+        public string deleteReview(int id)
         {
-            throw new NotImplementedException();
+            return _reviewRepository.deleteReview(id);
         }
 
-        public bool EditReview(int id, int ownerId, string text)
+        public List<Review> GetReviewsByOwner(int id)
         {
-            throw new NotImplementedException();
+            return _reviewRepository.GetReviewsByOwner(id);
+        }
+
+        public List<Review> GetReviewsBySitter(int id)
+        {
+            return _reviewRepository.GetReviewsBySitter(id);
+        }
+
+        public string UpdateReview(Review review)
+        {
+           return _reviewRepository.UpdateReview(review);
         }
     }
 }

@@ -9,9 +9,9 @@ namespace DogBNB.Repositories.Interfaces
 {
     public interface IServiceRepository
     {
-        public List<Sitter> GetSittersByService();//KLAUSIMAS: Ar situs metodus daryt cia ir service repository ar tsg userio repositorijoj
+        public List<Sitter> GetSittersByService(string serviceType);//KLAUSIMAS: Ar situs metodus daryt cia ir service repository ar tsg userio repositorijoj
         public List<Service> GetSitterServices(int userId);
-        public void AddService(Service service);
-        public void DeleteService(int id);
+        public Service AddService(Service service);
+        public String DeleteService(int id);
     }
 }
