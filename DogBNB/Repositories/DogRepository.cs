@@ -19,7 +19,7 @@ namespace DogBNB.Repositories
 
         }
 
-        public Dog GetDogById(string id)
+        public Dog GetDogById(int id)
         {
             var d = _context.Dogs.Where(x => x.DogId == id).First();
            
@@ -53,13 +53,13 @@ namespace DogBNB.Repositories
 
             return dog;
         }
-        public void DeleteDog(string dogId)
+        public void DeleteDog(int dogId)
         {
             var dog = _context.Dogs.Where(x => x.DogId == dogId).First();
             _context.Dogs.Remove(dog);
             _context.SaveChanges();
         }
-        public void EditDog(string dogId, Dog newDog)
+        public void EditDog(int dogId, Dog newDog)
         {
             var dog = _context.Dogs.Where(x => x.DogId == dogId).First();
             dog.Name = newDog.Name;
@@ -70,7 +70,7 @@ namespace DogBNB.Repositories
             _context.Dogs.Update(dog);
             _context.SaveChanges();
         }
-        public List<Dog> GetDogs(string ownerId)
+        public List<Dog> GetDogs(int ownerId)
         {
             var list = _context.Dogs.Where(x => x.OwnerId == ownerId).ToList();
 
@@ -94,5 +94,28 @@ namespace DogBNB.Repositories
             return dogs;
         }
 
+        public List<Dog> GetAllDogs()
+        {
+            var list = _context.Dogs.ToList();
+
+            var dogs = new List<Dog>();
+
+            foreach (var item in list)
+            {
+                _ = Enum.TryParse(item.Size, out DogSize size);
+                var dog = new Dog
+                {
+                    OwnerId = item.OwnerId,
+                    Name = item.Name,
+                    Breed = item.Breed,
+                    Age = item.Age,
+                    Size = size,
+                    Traits = item.Traits,
+                };
+                dogs.Add(dog);
+            }
+
+            return dogs;
+        }
     }
 }

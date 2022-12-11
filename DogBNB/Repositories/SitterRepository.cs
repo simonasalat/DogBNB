@@ -49,7 +49,7 @@ namespace DogBNB.Repositories
         public Sitter GetSitterById(int id)
         {
             var s = _context.Sitters.Where(s => s.UserId == id).First();
-            var u = _context.Users.Where(u => u.Id == id).First();
+            var u = _context.Users.Where(u => u.UserId == id).First();
             _ = Enum.TryParse(u.Gender, out GenderType gender);
             var sitter = new Sitter
             {

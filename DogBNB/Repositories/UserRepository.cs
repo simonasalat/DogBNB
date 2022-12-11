@@ -38,7 +38,7 @@ namespace DogBNB.Repositories
 
         public void DeleteUser(int id)//TODO: ApiResponse?
         {
-            var user =_context.Users.Where(u => u.Id == id).First();
+            var user =_context.Users.Where(u => u.UserId == id).First();
             _context.Users.Remove(user);
             _context.SaveChanges(); 
 
@@ -46,7 +46,7 @@ namespace DogBNB.Repositories
 
         public User GetUserById(int id)
         {
-            var u= _context.Users.Where(u => u.Id == id).First();
+            var u= _context.Users.Where(u => u.UserId == id).First();
             _ = Enum.TryParse(u.Gender, out GenderType gender);
             var user = new User
             {
@@ -106,7 +106,7 @@ namespace DogBNB.Repositories
 
         public User UpdateUser(User user, int id)//TODO:update password?
         {
-            var u = _context.Users.Where(u => u.Id == id).First();
+            var u = _context.Users.Where(u => u.UserId == id).First();
             if (u != null)
             {
                 u.Name = user.Name;

@@ -5,10 +5,12 @@ namespace DogBNB.IServices
 {
     public interface IDogService
     {
-        public Dog GetDogById(string id);
+        public Dog GetDogById(int id);
         public Dog AddDog(Dog dog);
-        public void DeleteDog(string dogId);
-        public void EditDog(string dogId, Dog newDog);
-        public List<Dog> GetDogList(string ownerId);
+        public void DeleteDog(int dogId);
+        public void EditDog(int dogId, Dog newDog);
+        public List<Dog> GetDogList(int ownerId);
+
+        public List<Dog> GetAllDogs();
     }
 }

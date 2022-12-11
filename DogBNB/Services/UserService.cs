@@ -15,7 +15,7 @@ namespace DogBNB.Services
          private readonly IUserRepository _repository;
 
         public UserService(IUserRepository userRepository)
-     {
+        {
             _repository = userRepository;
         }
 

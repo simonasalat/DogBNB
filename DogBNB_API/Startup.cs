@@ -17,6 +17,7 @@ namespace DogBNB_API
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddControllers();
             services.AddDbContext<DogBNBDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddScoped<IDogRepository, DogRepository>();
@@ -33,17 +34,9 @@ namespace DogBNB_API
             services.AddScoped<IOrderService,OrderService>();
             services.AddScoped<IReviewService,ReviewService>();
             services.AddScoped<IServiceService,ServiceService>();
-            services.AddScoped<ISitterService,SitterService>();
+            //services.AddScoped<ISitterService,SitterService>();
             services.AddScoped<IUserService,UserService>();
-
-
-
-
             services.AddScoped<IMessageService,MessageService>();
-
-
-            services.AddControllers();
-
 
         }
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
