@@ -50,6 +50,7 @@ namespace DogBNB.Repositories
             _ = Enum.TryParse(u.Gender, out GenderType gender);
             var user = new User
             {
+                Id=id,
                 Name = u.Name,
                 Surname = u.Surname,
                 Email = u.Email,
@@ -70,6 +71,7 @@ namespace DogBNB.Repositories
                 _ = Enum.TryParse(u.Gender, out GenderType gender);
                 var users = new User
                 {
+                    Id=u.UserId,
                     Name = u.Name,
                     Surname = u.Surname,
                     Email = u.Email,

@@ -27,6 +27,8 @@ namespace DogBNB_API
             services.AddScoped<ISitterRepository,SitterRepository>();
             services.AddScoped<ICallendarRepository,CallendarRepository>();
             services.AddScoped<IUserRepository,UserRepository>();
+            services.AddScoped<IReviewRepository, ReviewRepository>();
+            services.AddScoped<IServiceRepository, ServiceRepository>();
 
             services.AddScoped<IDogService, DogService>();
             services.AddScoped<ICallendarService,CallendarService>();
@@ -34,9 +36,12 @@ namespace DogBNB_API
             services.AddScoped<IOrderService,OrderService>();
             services.AddScoped<IReviewService,ReviewService>();
             services.AddScoped<IServiceService,ServiceService>();
-            //services.AddScoped<ISitterService,SitterService>();
+           services.AddScoped<ISitterService,SitterService>();
             services.AddScoped<IUserService,UserService>();
             services.AddScoped<IMessageService,MessageService>();
+            services.AddScoped<IReviewService, ReviewService>();
+
+
 
         }
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

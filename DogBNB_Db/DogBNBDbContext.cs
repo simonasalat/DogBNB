@@ -23,6 +23,8 @@ namespace DogBNB_Db
         public DbSet<Service> Services { get; set; }
         public DbSet<Sitter> Sitters { get; set; }
         public DbSet<Callendar> Callendars { get; set; }
+        public DbSet<Review> Reviews { get; set; }
+
 
 
     }

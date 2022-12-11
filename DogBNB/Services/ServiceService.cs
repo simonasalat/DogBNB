@@ -1,4 +1,5 @@
 ﻿using DogBNB.Models;
+using DogBNB.Repositories.Interfaces;
 using DogBNB.Services.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -10,24 +11,30 @@ namespace DogBNB.Services
 {
     public class ServiceService : IServiceService
     {
-        public void AddService(Service service)
+
+        private readonly IServiceRepository _serviceRepository;
+        public ServiceService(IServiceRepository serviceRepository)
         {
-            throw new NotImplementedException();
+            _serviceRepository = serviceRepository;
+        }
+        public Service AddService(Service service)
+        {
+            return _serviceRepository.AddService(service);
         }
 
-        public void DeleteService(int id)
+        public string DeleteService(int id)
         {
-            throw new NotImplementedException();
+            return _serviceRepository.DeleteService(id);
         }
 
-        public List<Sitter> GetSittersByService()
+        public List<Sitter> GetSittersByService(string serviceType)
         {
-            throw new NotImplementedException();
+            return _serviceRepository.GetSittersByService(serviceType);
         }
 
         public List<Service> GetSitterServices(int userId)
         {
-            throw new NotImplementedException();
+            return _serviceRepository.GetSitterServices(userId);
         }
     }
 }
